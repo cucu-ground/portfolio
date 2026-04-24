@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team | cucu</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Inconsolata:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="nav-inner">
+        <a href="index.html" class="logo">cucu</a>
+        <button class="ham-btn" onclick="toggleMenu()">&#9776;</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#home">home</a></li>
+          <li><a href="index.html#about">about</a></li>
+          <li><a href="index.html#skills">skills</a></li>
+          <li><a href="index.html#projects">projects</a></li>
+          <li><a href="index.html#activity">activity</a></li>
+          <li><a href="assignments.html">assignments</a></li>
+          <li><a href="team.html">team</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="asgn-header">
+      <div class="sec-inner">
+        <a href="index.html" class="asgn-back">&larr; 돌아가기</a>
+        <h1>Team.</h1>
+        <p>팀원들을 소개합니다.</p>
+      </div>
+    </div>
+
+    <!-- 팀원 카드 -->
+    <div class="sec-inner">
+      <div class="team-grid">
+        <!-- 팀원 1 (본인) -->
+        <div class="team-card">
+          <div class="team-img-wrap">
+            <img src="img/team1.png" alt="팀원1" />
+          </div>
+          <p class="team-name">이효정</p>
+          <p class="team-school">중부대학교</p>
+          <p class="team-interest">시스템 해킹, 레드팀</p>
+          <div
+            class="about-links"
+            style="justify-content: center; margin-top: 12px"
+          >
+            <a href="https://github.com/cucu-ground" target="_blank"
+              >GitHub &rarr;</a
+            >
+            <a href="https://cucu0417.tistory.com/" target="_blank"
+              >Blog &rarr;</a
+            >
+          </div>
+        </div>
+
+        <!-- 팀원 2 -->
+        <div class="team-card">
+          <div class="team-img-wrap">
+            <img src="img/team2.png" alt="팀원2" />
+          </div>
+          <p class="team-name">이제희</p>
+          <p class="team-school">중부대학교</p>
+          <p class="team-interest">클라우드</p>
+          <div
+            class="about-links"
+            style="justify-content: center; margin-top: 12px"
+          >
+            <a href="https://github.com/jbbok89" target="_blank"
+              >GitHub &rarr;</a
+            >
+            <a href="https://luckyd8.tistory.com/" target="_blank"
+              >Blog &rarr;</a
+            >
+          </div>
+        </div>
+
+        <!-- 팀원 3 -->
+        <div class="team-card">
+          <div class="team-img-wrap">
+            <img src="img/team3.png" alt="팀원3" />
+          </div>
+          <p class="team-name">김민재</p>
+          <p class="team-school">중부대학교</p>
+          <p class="team-interest">웹</p>
+          <div
+            class="about-links"
+            style="justify-content: center; margin-top: 12px"
+          >
+            <a href="https://github.com/minjae0202" target="_blank"
+              >GitHub &rarr;</a
+            >
+            <a href="https://blog.naver.com/minjaemando" target="_blank"
+              >Blog &rarr;</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- 팀 프로젝트 -->
+      <div class="team-project">
+        <h2>Team Project.</h2>
+        <p>
+          웹, 포너블, 클라우드 취약점 및 보안책 사이트 제작<br />
+          각자의 관심 분야를 넣어 취약점 분석 사이트를 제작하였습니다.
+        </p>
+        <a
+          href="https://배포주소를여기에"
+          target="_blank"
+          class="team-project-link"
+          >배포 페이지 보기 &rarr;</a
+        >
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

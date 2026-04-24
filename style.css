@@ -1,0 +1,680 @@
+* {
+  margin: 0; /* 바깥 여백 */
+  padding: 0; /* 안쪽 여백 */
+  box-sizing: border-box; /* 요소의 너비와 높이를 계산할 때 테두리와 안쪽 여백 포함 */
+}
+
+/* ===== 테마 변수 ===== */
+
+:root {
+  /* <html> 태그 선택 */
+  /* [속성='값'] : 특정 속성을 가진 요소 선택 */
+  --bg: #ffffff;
+  --bg2: #f5f5f5;
+  --text: #1a1a1a;
+  --sub: #888888;
+  --border: #dddddd;
+}
+
+/* ===== 기본 ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: var(--bg); /* 위에 선언한 변수 값 불러옴 */
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.8;
+  transition:     /* 상태가 변할 때 0.3초 동안 부드럽게 애니메이션 효과 줌 */
+    background-color 0.3s,
+    color 0.3s;
+}
+
+a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit; /* 부모 요소의 글자 색상 물려받기 */
+}
+ul {
+  list-style: none; /* ul 글머리 기호(점) 제거 */
+}
+
+/* ===== 네비게이션 ===== */
+
+#navbar {
+  /* id=navbar인 요소 선택 */
+  position: fixed; /* 스크롤를 내려도 화면 상단에 고정 */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 999; /* 요소들이 겹쳤을 경우 우선순위 (숫자가 클수록 맨 앞으로 나옴) */
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+.nav-inner {
+  max-width: 1000px; /* 최대 너비 지정 */
+  margin: 0 auto; /* 위아래 여백: 0, 죄우 여백: auto (가운데 정렬) */
+  padding: 0 24px;
+  height: 100%;
+  display: flex; /* 가로 세로 유연하게 정렬 */
+  align-items: center; /* 수직 정렬 */
+  justify-content: space-between; /* 양 끝 요소를 끝에 맞춰 배치하고 나머지는 간격을 균등하게 배분 */
+}
+
+.logo {
+  font-family: 'Inconsolata', monospace;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px; /* 내부 요소들 사이 간격 지정 */
+}
+
+.nav-links a {
+  font-family: 'Inconsolata', monospace;
+  font-size: 13px;
+  color: var(--sub);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  /* hover : 사용자가 마우스를 요소 위에 올렸을 때 */
+  color: var(--text);
+}
+
+/* 햄버거 버튼 */
+.ham-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+/* ===== 섹션 공통 ===== */
+
+section {
+  padding: 100px 0 80px; /* 위 좌우 아래 */
+}
+
+.sec-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.sec-gray {
+  background-color: var(--bg2);
+}
+
+.sec-title {
+  font-family: 'Inconsolata', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* ===== HOME ===== */
+
+#home {
+  min-height: 100vh; /* vh : 화면 전체 높이를 기준 (100vh : 화면 높이의 100%)*/
+  display: flex;
+  align-items: center;
+  padding-top: 56px;
+}
+
+.home-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.home-sub {
+  font-family: 'Inconsolata', monospace;
+  font-size: 13px;
+  color: var(--sub);
+  margin-bottom: 18px;
+}
+
+.home-title {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 24px;
+}
+
+.name-em {
+  border-bottom: 3px solid var(--text);
+}
+
+.home-desc {
+  font-size: 15px;
+  color: var(--sub);
+}
+
+/* ===== ABOUT ===== */
+
+/* 텍스트 60% / 테이블 40% */
+.about-wrap {
+  display: grid; /* 격자 레이아웃 */
+  grid-template-columns: 60% 40%; /* 세로로 2등분 하되, 60:40 비율 */
+  gap: 60px; /* 내부 요소들 사이 간격 */
+  align-items: start; /* 요소들을 교차축의 시작점에 위치 시킴 */
+}
+
+.about-text p {
+  font-size: 14px;
+  color: var(--sub);
+  margin-bottom: 16px;
+  line-height: 1.9;
+}
+
+.about-links {
+  display: flex;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.about-links a {
+  font-family: 'Inconsolata', monospace;
+  font-size: 14px;
+  border-bottom: 1px solid var(--text);
+  padding-bottom: 2px;
+  transition: opacity 0.2s; /* 투명도가 변경될 떄 */
+}
+.about-links a:hover {
+  opacity: 0.6;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse; /* 셀 경계가 합쳐짐 */
+}
+.info-table tr {
+  border-bottom: 1px solid var(--border); /* 경계에 대한 두께 설정 (전공, 관심 분야 등 아래 줄 생성) */
+}
+.info-table tr:first-child {
+  /* 형제 요소들 중 첫번째 요소 */
+  border-top: 1px solid var(--border); /* 전공 위쪽 줄 생성 */
+}
+.info-table td {
+  padding: 12px 8px;
+  font-size: 14px;
+  vertical-align: top; /* 수직 기준 윗부분 모서리에 위치 */
+}
+.info-key {
+  color: var(--sub);
+  width: 90px;
+  font-size: 12px;
+  padding-top: 14px;
+}
+
+/* ===== SKILLS ===== */
+
+.skills-wrap {
+  display: flex;
+  flex-direction: column; /* 자식 요소(LANGUAGES, TOOLS 등)를 세로로 배치 */
+  gap: 32px;
+}
+
+.skill-group-title {
+  font-family: 'Inconsolata', monospace;
+  font-size: 12px;
+  color: var(--sub);
+  letter-spacing: 1px; /* 글자와 글자 사이의 간격 */
+  text-transform: uppercase; /* 소문자 -> 대문자로 보여줌 */
+  margin-bottom: 12px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap; /* 요소들이 가로 공간을 넘치게 되면 다음 줄로 넘어가게 함 */
+  gap: 8px;
+}
+
+.skill-tags span {
+  border: 1px solid var(--border); /* 상자 생성 */
+  border-radius: 3px; /* 둥글게 */
+  padding: 4px 12px;
+  font-family: 'Inconsolata', monospace;
+  font-size: 13px;
+}
+
+/* ===== PROJECTS ===== */
+
+/* 번호열 100px / 내용 나머지 */
+.project-item {
+  display: grid;
+  grid-template-columns: 100px calc(100% - 140px); /* 2개의 열을 생성 (첫 열: 100px, 두번째 열: 140px를 뺀 남은 공간 */
+  /* calc(): 수학 계산 */
+  gap: 40px;
+  padding: 40px 0;
+}
+
+.proj-num {
+  font-family: 'Inconsolata', monospace;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--border);
+  margin-bottom: 12px;
+}
+
+.proj-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.proj-tags span {
+  font-family: 'Inconsolata', monospace;
+  font-size: 12px;
+  color: var(--sub);
+}
+
+.proj-right h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.proj-right p {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+.proj-results {
+  list-style: disc; /* 글머리 기호 : 검은색 원 */
+  padding-left: 18px;
+  margin-bottom: 20px;
+}
+.proj-results li {
+  font-size: 13px;
+  color: var(--sub);
+  margin-bottom: 6px;
+}
+
+.proj-divider {
+  /* 구분선 생성 */
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* 스크린샷 - 양쪽 50% */
+.proj-screenshots {
+  display: grid;
+  grid-template-columns: 50% 50%; /* 2개의 열 생성 */
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* ===== ACTIVITY ===== */
+
+/* 50/50 두 열 */
+.activity-wrap {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 60px;
+}
+
+.activity-col-title {
+  font-family: 'Inconsolata', monospace;
+  font-size: 12px;
+  color: var(--sub);
+  letter-spacing: 1px;
+  text-transform: uppercase; /* 소문자 -> 대문자로 보여줌 */
+  margin-bottom: 20px;
+}
+
+.act-item {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.act-item:first-child {
+  border-top: 1px solid var(--border);
+}
+.act-period {
+  display: block; /* 내용 상관없이 가로 전체 폭 차지 */
+  font-family: 'Inconsolata', monospace;
+  font-size: 12px;
+  color: var(--sub);
+  margin-bottom: 4px;
+}
+.act-name {
+  font-size: 14px;
+}
+
+/* ===== ASSIGNMENTS 바로가기 (index) ===== */
+
+.assignments-link {
+  display: inline-flex; /* 주변 요소와 한 줄에 나란히 배치 + flex*/
+  align-items: center;
+  justify-content: space-between;
+  width: 320px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+  font-family: 'Inconsolata', monospace;
+  font-size: 15px;
+  transition: opacity 0.2s;
+}
+.assignments-link:hover {
+  opacity: 0.6;
+}
+/* screenshot-img: 게시판 실제 이미지 */
+.screenshot-img {
+  width: 100%;
+  height: 400px;
+  object-position: top;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  display: block;
+}
+
+/* ===========================
+   TEAM 페이지
+   =========================== */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 33% 33% 34%;
+  gap: 40px;
+  padding: 60px 0 80px;
+}
+
+.team-card {
+  text-align: center;
+}
+
+/* 팀원 사진 - 정사각형 */
+.team-img-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* 가로 세율 비율 1:1 */
+  border: 1px solid var(--border);
+  overflow: hidden; /* 이미지가 크더라도 경계 밖은 숨김 */
+  margin-bottom: 20px;
+}
+
+.team-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 원본 비율은 유지하되 부모 요소의 크기에 맞춤 */
+  display: block;
+}
+
+.team-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.team-school {
+  font-family: 'Inconsolata', monospace;
+  font-size: 12px;
+  color: var(--sub);
+  margin-bottom: 10px;
+}
+
+.team-interest {
+  font-size: 13px;
+  color: var(--sub);
+}
+
+/* 팀 프로젝트 소개 */
+.team-project {
+  border-top: 1px solid var(--border);
+  padding: 50px 0 80px;
+}
+
+.team-project h2 {
+  font-family: 'Inconsolata', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.team-project p {
+  font-size: 14px;
+  color: var(--sub);
+  margin-bottom: 24px;
+  line-height: 1.85; /* 텍스트 줄 간격 설정 */
+}
+
+.team-project-link {
+  font-family: 'Inconsolata', monospace;
+  font-size: 13px;
+  border-bottom: 1px solid var(--text);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+.team-project-link:hover {
+  opacity: 0.6;
+}
+
+/* ===========================
+   ASSIGNMENTS 페이지
+   =========================== */
+
+.asgn-header {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid var(--border);
+}
+
+.asgn-header h1 {
+  font-family: 'Inconsolata', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.asgn-header p {
+  font-size: 14px;
+  color: var(--sub);
+}
+
+.asgn-back {
+  display: inline-block; /* 옆으로 나란히 배치(inline) + 너비, 높이 크기 조절 가능(block) */
+  font-family: 'Inconsolata', monospace;
+  font-size: 13px;
+  color: var(--sub);
+  margin-bottom: 24px;
+  transition: color 0.2s;
+}
+.asgn-back:hover {
+  color: var(--text);
+}
+
+/* 과제 항목 */
+.asgn-item {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.asgn-item:nth-child(even) {
+  /* nth-child(even) : 짝수번째 요소 선택*/
+  background-color: var(--bg2);
+}
+
+/* 텍스트 40% / 이미지 60% */
+.asgn-item-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid; /* 격자 레이아웃으로  grid-template-columns와 같은 기능 사용 가능 */
+  grid-template-columns: 40% 60%;
+  gap: 60px; /* 사진과 글자 간격 */
+  align-items: center;
+}
+
+/* 반전 항목일 때, 그리드 비율도 같이 뒤집어줌*/
+.asgn-item-rev .asgn-item-inner {
+  grid-template-columns: 60% 40%;
+}
+
+/* 반전 항목: 이미지 먼저 */
+.asgn-item-rev .asgn-text {
+  order: 2; /* flexbox나 grid 내 요소가 화면에 보여지는 순서 바꿈 */
+}
+.asgn-item-rev .asgn-img-wrap {
+  order: 1;
+}
+
+.asgn-text h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.asgn-text p {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.8;
+}
+
+/* 이미지 영역 */
+.asgn-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+}
+
+.asgn-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 박스 비율에 맞춰 꽉 차게 들어감 */
+  object-position: top; /* 이미지를 위에 고정 (윗 부분을 기준으로 잡음) */
+  display: block;
+}
+
+/* ===========================
+   반응형 - 768px 이하
+   =========================== */
+
+@media (max-width: 768px) {
+  /* 브라우저 창의 너비가 768px 이하일 때 아래 디자인 적용 */
+  .ham-btn {
+    display: block;
+  }
+
+  /* 햄버거 버튼이 눌러졌을 경우 나올 메뉴창 */
+  .nav-links {
+    display: none; /* 처음엔 메뉴 숨김 */
+    flex-direction: column; /* 메뉴들을 세로로 한 줄씩 나열 */
+    align-items: flex-start; /* 요소들을 교차축 시작점으로 정렬 */
+    position: fixed; /* 스크롤해도 위치 고정 */
+    top: 56px;
+    left: 0;
+    right: 0;
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0;
+    z-index: 998; /* 요소들이 겹칠 때 숫자가 클수록 화면 앞쪽에 배치 */
+  }
+  .nav-links.open {
+    /* nav-links 클래스와 open 클래스를 동시에 가지고 있는 요소만 선택 */
+    display: flex; /* 버튼이 눌려 open 상태일 경우 메뉴 창 화면에 보여줌 */
+  }
+  .nav-links li {
+    width: 100%;
+  }
+  .nav-links li a {
+    display: block;
+    padding: 12px 24px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-radius: 0;
+  }
+
+  .home-title {
+    font-size: 32px;
+  }
+
+  .about-wrap {
+    grid-template-columns: 100%;
+    gap: 36px;
+  }
+
+  .project-item {
+    grid-template-columns: 100%;
+    gap: 16px;
+  }
+  .proj-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .proj-num {
+    margin-bottom: 0;
+  }
+  .proj-tags {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .activity-wrap {
+    grid-template-columns: 100%;
+    gap: 40px;
+  }
+
+  .proj-screenshots {
+    grid-template-columns: 100%;
+  }
+
+  .assignments-link {
+    width: 100%;
+  }
+
+  .team-grid {
+    grid-template-columns: 100%;
+  }
+
+  /* assignments */
+  .asgn-item-inner {
+    grid-template-columns: 100%;
+    gap: 24px;
+  }
+
+  .asgn-item-rev .asgn-item-inner {
+    grid-template-columns: 60% 40%;
+  }
+  .asgn-item-rev .asgn-text {
+    order: 1;
+  }
+  .asgn-item-rev .asgn-img-wrap {
+    order: 2;
+  }
+  .asgn-item {
+    padding: 50px 0;
+  }
+}
+
+/* ===========================
+   반응형 - 480px 이하
+   =========================== */
+
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 26px;
+  }
+  .sec-title {
+    font-size: 22px;
+  }
+  section {
+    padding: 80px 0 60px;
+  }
+}
