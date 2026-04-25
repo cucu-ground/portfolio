@@ -650,7 +650,8 @@ section {
   }
 
   .asgn-item-rev .asgn-item-inner {
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 100%;
+    gap: 24px;
   }
   .asgn-item-rev .asgn-text {
     order: 1;
