@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cucu - portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Inconsolata:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="nav-inner">
+        <a href="#home" class="logo">cucu</a>
+        <button class="ham-btn" onclick="toggleMenu()">&#9776;</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">home</a></li>
+          <li><a href="#about">about</a></li>
+          <li><a href="#skills">skills</a></li>
+          <li><a href="#projects">projects</a></li>
+          <li><a href="#activity">activity</a></li>
+          <li><a href="assignments.html">assignments</a></li>
+          <li><a href="team.html">team</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="cli-container">
+      <div id="cli-output"></div>
+      <div class="cli-input-wrapper">
+        <span class="cli-prompt">C:\cucu\portfolio></span>
+        <input
+          type="text"
+          id="cli-input"
+          placeholder="명령어를 입력하세요 (ls, cd about, assignments 등)"
+        />
+      </div>
+    </div>
+
+    <!-- HOME -->
+    <section id="home" class="fade-section">
+      <div class="home-inner">
+        <p class="home-sub">정보보호학과 2학년</p>
+        <h1 class="home-title">
+          시스템 해킹과<br />
+          레드팀에 관심 있는<br />
+          <span class="name-em">보안 전공 대학생</span>입니다.
+        </h1>
+        <p class="home-desc">최종적으로 레드팀으로 취직하는 게 목표입니다.</p>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="fade-section">
+      <div class="sec-inner">
+        <h2 class="sec-title">About.</h2>
+        <div class="about-wrap">
+          <div class="about-text">
+            <p>
+              정보보호학과에 다니면서 주로 시스템 해킹 분야를 공부하고 있습니다.
+              CTF 문제 풀기도 좋아하고, 취약점 찾는 것도 재밌어서 이쪽으로 계속
+              파고 있습니다.
+            </p>
+            <p>나중에는 모의해킹이나 레드팀 쪽으로 취직하고 싶습니다.</p>
+            <div class="about-links">
+              <a href="https://github.com/cucu-ground" target="_blank"
+                >GitHub &rarr;</a
+              >
+              <a href="https://cucu0417.tistory.com/" target="_blank"
+                >Blog &rarr;</a
+              >
+            </div>
+          </div>
+          <div>
+            <table class="info-table">
+              <tr>
+                <td class="info-key">전공</td>
+                <td>정보보호학과</td>
+              </tr>
+              <tr>
+                <td class="info-key">관심 분야</td>
+                <td>시스템 해킹, 레드팀</td>
+              </tr>
+              <tr>
+                <td class="info-key">목표</td>
+                <td>모의해킹 / 레드팀 취직</td>
+              </tr>
+              <tr>
+                <td class="info-key">동아리</td>
+                <td>S.C.P</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="sec-gray fade-section">
+      <div class="sec-inner">
+        <h2 class="sec-title">Skills.</h2>
+        <div class="skills-wrap">
+          <div class="skill-group">
+            <h3 class="skill-group-title">Languages</h3>
+            <div class="skill-tags">
+              <span>C</span><span>Python</span><span>Go</span> <span>PHP</span
+              ><span>MySQL</span><span>JavaScript</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group-title">Tools</h3>
+            <div class="skill-tags">
+              <span>Docker</span><span>Git</span><span>AFL++</span>
+              <span>GDB / pwndbg</span><span>pwntools</span><span>IDA</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group-title">Security</h3>
+            <div class="skill-tags">
+              <span>System Hacking</span><span>Web Security</span>
+              <span>Fuzzing</span><span>Binary Exploitation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="fade-section">
+      <div class="sec-inner">
+        <h2 class="sec-title">Projects.</h2>
+
+        <div class="project-item">
+          <div class="proj-left">
+            <div class="proj-num">01</div>
+            <div class="proj-tags">
+              <span>PHP</span><span>MySQL</span><span>HTML</span
+              ><span>CSS</span>
+            </div>
+          </div>
+          <div class="proj-right">
+            <h3>게시판 구현 및 취약점 보고서 작성</h3>
+            <p>
+              PHP와 MySQL로 게시판을 직접 만들고, 동아리원들과 서로의 게시판을
+              뚫어보는 프로젝트입니다. CRUD 기능과 게시판 기본 기능들을 구현한
+              다음 침투 테스트를 진행했습니다.
+            </p>
+            <ul class="proj-results">
+              <li>게시글 작성 / 수정 / 삭제 / 조회 기능 및 기본 기능 구현</li>
+              <li>침투 테스트로 보안 취약점 9종 발견</li>
+              <li>취약점 분석 보고서 작성</li>
+            </ul>
+            <div class="proj-screenshots">
+              <img src="img/board1.png" class="screenshot-img" />
+              <img src="img/board2.png" class="screenshot-img" />
+            </div>
+          </div>
+        </div>
+
+        <hr class="proj-divider" />
+
+        <div class="project-item">
+          <div class="proj-left">
+            <div class="proj-num">02</div>
+            <div class="proj-tags">
+              <span>C</span><span>AFL++</span><span>Linux</span>
+            </div>
+          </div>
+          <div class="proj-right">
+            <h3>sudo CVE 탐색</h3>
+            <p>
+              AFL Fuzzer를 이용해 sudo 소스코드를 분석하고 새로운 CVE를 찾으려
+              한 프로젝트입니다. 결과적으로 reject 됐지만 코드 분석이랑 퍼징
+              경험을 많이 쌓았습니다.
+            </p>
+            <ul class="proj-results">
+              <li>sudo 코드베이스 구조 분석 (plugins/sudoers/ 등)</li>
+              <li>AFL++ 퍼징 환경 구축 (ASAN / LTO 빌드)</li>
+              <li>의심 부분 12개 발견 &rarr; 최종 reject</li>
+              <li>CVE-2019-14287 등 기존 취약점 분석</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITY -->
+    <section id="activity" class="sec-gray fade-section">
+      <div class="sec-inner">
+        <h2 class="sec-title">Activity.</h2>
+        <div class="activity-wrap">
+          <div class="activity-col">
+            <h3 class="activity-col-title">대외활동</h3>
+            <div class="act-list">
+              <div class="act-item">
+                <span class="act-period">2025.09 - 2026.04</span>
+                <p class="act-name">HSPACE NightsFrontier 수료</p>
+              </div>
+              <div class="act-item">
+                <span class="act-period">2025</span>
+                <p class="act-name">S.C.P 임원진</p>
+              </div>
+              <div class="act-item">
+                <span class="act-period">2025</span>
+                <p class="act-name">KISIA 정책 공모전 참가</p>
+              </div>
+            </div>
+          </div>
+          <div class="activity-col">
+            <h3 class="activity-col-title">CTF 참가</h3>
+            <div class="act-list">
+              <div class="act-item"><p class="act-name">CCE CTF</p></div>
+              <div class="act-item"><p class="act-name">JBU CTF</p></div>
+              <div class="act-item"><p class="act-name">INC0GNITO CTF</p></div>
+              <div class="act-item"><p class="act-name">CodeGate CTF</p></div>
+              <div class="act-item">
+                <p class="act-name">KnightsFrontier CTF</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ASSIGNMENTS -->
+    <section id="assignments" class="fade-section">
+      <div class="sec-inner">
+        <h2 class="sec-title">Assignments.</h2>
+        <a href="assignments.html" class="assignments-link">
+          <span>과제 페이지 목록 보기</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="sec-gray fade-section">
+      <div class="sec-inner">
+        <h2 class="sec-title">Team.</h2>
+        <a href="team.html" class="assignments-link">
+          <span>팀 페이지 보기</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+</html>
